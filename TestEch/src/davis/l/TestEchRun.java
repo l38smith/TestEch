@@ -18,7 +18,7 @@ public class TestEchRun implements Runnable {
 	     
 	             Thread.currentThread().getName();
 	             socket.getRemoteSocketAddress();
-	               
+	           
 	        
 	       try (
 	            Formatter toClient 
@@ -42,7 +42,6 @@ public class TestEchRun implements Runnable {
 	            				socket.getRemoteSocketAddress());
 	            		         		
 	            		while (true); 
-	            	 
 	            	 }
 	            	 else {
 	              System.out.printf(
@@ -54,8 +53,7 @@ public class TestEchRun implements Runnable {
 	               	             
 	              toClient.format(" ECHO: \"%s\"%n", toEcho);
 	              toClient.flush();
-	                
-	               
+	                               
 	            	 }
 	                }
 	               } 
@@ -64,14 +62,9 @@ public class TestEchRun implements Runnable {
 	        	 System.out.printf("SERVER: %s: %s Connection lost%n"
 		         , Thread.currentThread().getName()
 		         , socket.getRemoteSocketAddress()); 	                   
-	        		
-	              
-	        	 
-	        }
-	            
-	       }
-	                
-	  
+	       	 
+  }
+ }    
 }
 	 
 	        

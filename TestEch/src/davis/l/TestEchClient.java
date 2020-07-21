@@ -11,44 +11,36 @@ public class TestEchClient {
      public static void main(String[] args) throws Exception {
         System.out.printf("%nWelcome to Client!%n%n%n");
 
-        Scanner scanner = new Scanner (System.in)    ;
+        Scanner scanner = new Scanner (System.in);
 	   
-	   Socket socket
-            = new Socket("localhost", 12715);
+	    Socket socket
+           = new Socket("localhost", 12715);
         Formatter toServer 
            = new Formatter(socket.getOutputStream());
      
         Scanner fromServer
            = new Scanner(socket.getInputStream());
      
-        String Connected = fromServer.nextLine() ;
-        System.out.printf("%s%n", Connected) ;
+        String Connected = fromServer.nextLine();
+        System.out.printf("%s%n", Connected);
            
       boolean prompted = true;
-
-     
-        
-        
-       while (prompted) {
-
+                   
+      while (prompted) {
       
-    	   System.out.printf("%n What do you want echoed (\".\" to exit)?");
-    	    String wishechoed = scanner.nextLine() ;  
-    	    System.out.printf("%n");
+    	System.out.printf("%n What do you want echoed (\".\" to exit)?");
+    	String wishechoed = scanner.nextLine() ;  
+    	System.out.printf("%n");
 
         	try {   
-        		   
-        		    
+                		    
 	    toServer.format("%s%n", wishechoed);
         toServer.flush();
         String echoing = fromServer.nextLine();
-	    System.out.printf("  %s%n%n"
-	    		+ "", echoing);
-	       
+	    System.out.printf("  %s%n%n" + "", echoing);
+	    	     
         Thread.sleep(1000 * 5);
-	    
-        	
-	    
+	    	    
 	    if (wishechoed.equals(".")) {
 	    	prompted = false;
 	    	
@@ -65,16 +57,13 @@ public class TestEchClient {
 	    	
 	    	//socket.close(); 
 	    	 while (prompted);
-	    	
-	    }
-	    } catch (InterruptedException  e) {
-	         throw new RuntimeException(e) ;   
-	       
-	       
-}  
-    
-}
-   
-}
+	  	   }
+	      }
+        	catch (InterruptedException  e) {
+	        throw new RuntimeException(e) ;   
+	     
+   }  
+  }
+ }
 }    
 

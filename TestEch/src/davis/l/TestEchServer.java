@@ -10,8 +10,7 @@ public class TestEchServer {
     public static void main(String[] args) throws Exception {
     	System.out.printf("%n Welcome to Server!%n%n");
         
-    	 
-    	
+       	
         ExecutorService pool = Executors.newFixedThreadPool(5);
 
         int port = 12715;
@@ -22,7 +21,7 @@ public class TestEchServer {
         while (true) {
      
         System.out.printf(" Waiting to accept client connection....%n");
-     // Main thread will block until a client connects to the server    
+          // Main thread will block until a client connects to the server    
         Socket s = server.accept();
         Formatter toClient =
         		new Formatter(s.getOutputStream());
@@ -44,17 +43,10 @@ public class TestEchServer {
         TestEchRun runnable
                 = new TestEchRun(s);
             
-        
             // Run the runnable in a thread pool to free up the Main
             // thread to accept other connections.
         pool.execute(runnable);}
-        
-      
-       
-   
-    
-    
-        }
+     }
     }
 
     	
